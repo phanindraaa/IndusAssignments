@@ -1,0 +1,111 @@
+/* Main container for transactions */
+.transactions-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1000px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headings */
+.transactions-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Actions section */
+.transactions-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.transactions-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.transactions-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Form styling */
+.add-transaction-form,
+.get-transaction-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.add-transaction-form input,
+.get-transaction-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-transaction-form button,
+.get-transaction-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.add-transaction-form button:hover,
+.get-transaction-form button:hover {
+  background-color: #218838;
+}
+
+.add-transaction-form button[type="button"],
+.get-transaction-form button[type="button"] {
+  background-color: #dc3545;
+}
+
+.add-transaction-form button[type="button"]:hover,
+.get-transaction-form button[type="button"]:hover {
+  background-color: #c82333;
+}
+
+/* Transactions table */
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.transactions-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.transactions-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

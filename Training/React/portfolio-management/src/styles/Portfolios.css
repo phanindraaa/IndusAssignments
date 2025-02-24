@@ -1,0 +1,112 @@
+/* Main container for portfolios */
+.portfolio-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 900px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headings */
+.portfolio-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Form for adding a portfolio */
+.add-portfolio-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.add-portfolio-form input {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-portfolio-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.add-portfolio-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Actions section */
+.portfolio-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.portfolio-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.portfolio-actions button:hover {
+  background-color: #218838;
+}
+
+.portfolio-actions button:last-child {
+  background-color: #dc3545;
+}
+
+.portfolio-actions button:last-child:hover {
+  background-color: #c82333;
+}
+
+/* Portfolio table */
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.portfolio-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.portfolio-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Transaction header within add form */
+.add-portfolio-form h4 {
+  flex-basis: 100%;
+  text-align: center;
+  color: #007bff;
+}
