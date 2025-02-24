@@ -1,0 +1,60 @@
+package com.indus.training.spring.service;
+
+import com.indus.training.spring.svc.EmployeeDAO;
+
+
+import com.indus.training.spring.entity.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+
+import java.util.List;
+
+@Service
+@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+public class EmployeeServiceImpl implements EmployeeService {
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
+
+    // Cache the result of getting all employees
+    @Override
+    @Cacheable(value = "employeeCache", unless = "#result.size() == 0")
+    public List<Employee> getAllEmployees() {
+        return employeeDAO.findAll();
+    }
+
+    // Cache the result of getting an employee by ID
+    @Override
+    @Cacheable(value = "employeeCache", key = "#id")
+    public Employee getEmployeeById(int id) {
+        return employeeDAO.findById(id).orElse(null);
+    }
+
+    // Update cache after saving an employee
+    @Override
+    @CachePut(value = "employeeCache", key = "#employee.employeeId")
+    public int saveEmployee(Employee employee) {
+        employeeDAO.save(employee); // Save the employee using DAO
+        return employee.getEmployeeId(); // Return the ID of the saved employee
+    }
+
+    // Evict the cache for the deleted employee by ID
+    @Override
+    @CacheEvict(value = "employeeCache", key = "#id")
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteById(id);
+    }
+
+    // Method to clear all cache entries (optional)
+    @Caching(evict = {
+        @CacheEvict(value = "employeeCache", allEntries = true)
+    })
+    public void clearAllCache() {
+        // This method can be called to clear the entire cache
+    }
+}

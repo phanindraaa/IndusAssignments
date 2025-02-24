@@ -1,0 +1,10 @@
+1725421289047	Rename package 'com.indus.training.core.entity'
+1725421339895	Rename package 'com.indus.training.core.dac.impl'
+1725421396664	Rename package 'com.indus.training.persist.impl'
+1725426690112	Encapsulate field 'empAddress, ...'
+1725426887929	Rename type 'testEmpData'
+1725427005260	Rename type 'EmpData'
+1725515249955	Move 'dbconfig.properties' to 'snippet'
+1725515259422	Delete element
+1725515291722	Delete element
+1725515553119	Delete element

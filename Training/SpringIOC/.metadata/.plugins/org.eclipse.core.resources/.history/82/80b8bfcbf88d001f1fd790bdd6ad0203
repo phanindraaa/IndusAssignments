@@ -1,0 +1,43 @@
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
+
+public class EmployeeServiceImpl implements EmployeeService {
+
+    // Cacheable: Caches the result of the getEmployeeById method
+    @Override
+    @Cacheable(value = "employeeCache", key = "#id")
+    public Employee getEmployeeById(int id) {
+        return employeeDAO.findById(id);
+    }
+
+    // CachePut: Updates the cache with the result after saving an employee
+    @Override
+    @CachePut(value = "employeeCache", key = "#result.id")
+    public int saveEmployee(Employee employee) {
+        return employeeDAO.save(employee);
+    }
+
+    // CacheEvict: Removes the employee from the cache when deleted
+    @Override
+    @CacheEvict(value = "employeeCache", key = "#id")
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteById(id);
+    }
+
+    // Cacheable: Caches the result of retrieving all employees
+    @Override
+    @Cacheable(value = "employeeCache", unless = "#result.size() == 0")
+    public List<Employee> getAllEmployees() {
+        return employeeDAO.findAll();
+    }
+
+    // Multiple cache operations using @Caching annotation
+    @Caching(evict = {
+        @CacheEvict(value = "employeeCache", allEntries = true) // Clear the cache for all employees
+    })
+    public void clearCache() {
+        // Method to manually clear cache, if necessary
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployeeUi Javadoc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+        }
+        .header, .params, .returns, .throws {
+            margin-top: 20px;
+            padding: 10px;
+            border-left: 3px solid #0056b3;
+        }
+        .params li, .throws li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Class EmployeeUi</h1>
+    <p><b>Package:</b> com.indus.training.ui</p>
+    <p><b>Author:</b> Indus Training</p>
+
+    <h2>public class <code>EmployeeUi</code></h2>
+    <p>The <code>EmployeeUi</code> class provides a command-line interface for managing employee records. Users can insert, update, delete, and fetch employee details using the options provided in the menu.</p>
+
+    <h2>Method Summary</h2>
+    <ul>
+        <li><b>public static void <code>main(String[] args)</code> throws <code>EmpDataException</code></b></li>
+    </ul>
+
+    <div class="header">
+        <h3>main</h3>
+        <p><b>Description:</b> The entry point of the program, which provides a command-line interface for managing employee data.</p>
+        <pre><code>public static void main(String[] args) throws EmpDataException</code></pre>
+    </div>
+
+    <div class="params">
+        <h3>Parameters:</h3>
+        <ul>
+            <li><b>args:</b> Command-line arguments passed to the program. Not used in this implementation.</li>
+        </ul>
+    </div>
+
+    <div class="throws">
+        <h3>Throws:</h3>
+        <ul>
+            <li><b>EmpDataException:</b> Thrown if there is an error in managing employee data (insert, update, delete, or fetch).</li>
+        </ul>
+    </div>
+
+    <h2>Usage Example:</h2>
+    <pre><code>
+        EmployeeUi.main(new String[0]);
+    </code></pre>
+
+</body>
+</html>

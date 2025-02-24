@@ -1,0 +1,5 @@
+package com.indus.training.spring.config;
+
+public class JpaConfig {
+
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.indus.training.persist.test.EmployeeDepartmentDAOTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.70 s -- in com.indus.training.persist.test.EmployeeDepartmentDAOTest

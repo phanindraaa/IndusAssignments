@@ -1,0 +1,8 @@
+INDEX VERSION 1.134+C:\Users\phani\Indus_valley\Training\Classrooms\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+684909215.index
+3844904466.index
+1309293472.index
+3001139673.index
+3492614207.index
+1811925707.index

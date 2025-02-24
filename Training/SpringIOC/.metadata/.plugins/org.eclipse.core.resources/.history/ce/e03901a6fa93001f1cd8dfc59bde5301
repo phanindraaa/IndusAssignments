@@ -1,0 +1,53 @@
+package com.indus.training.spring.test;
+
+import com.indus.training.spring.config.JpaConfig;
+import com.indus.training.spring.entity.Employee;
+import com.example.repository.EmployeeRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class EmployeeRepositoryTests {
+
+    private EmployeeRepository employeeRepository;
+
+    @BeforeEach
+    public void setup() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(JpaConfig.class);
+        employeeRepository = context.getBean(EmployeeRepository.class);
+    }
+
+    @Test
+    public void testSaveEmployee() {
+        Employee employee = new Employee("John", "Doe", "john.doe@example.com", 60000);
+        Employee savedEmployee = employeeRepository.save(employee);
+
+        assertThat(savedEmployee.getId()).isGreaterThan(0);
+        assertThat(savedEmployee.getFirstName()).isEqualTo("John");
+    }
+
+    @Test
+    public void testFindEmployeeById() {
+        Employee employee = new Employee("Jane", "Doe", "jane.doe@example.com", 70000);
+        Employee savedEmployee = employeeRepository.save(employee);
+
+        Optional<Employee> retrievedEmployee = employeeRepository.findById(savedEmployee.getId());
+        assertThat(retrievedEmployee.isPresent()).isTrue();
+        assertThat(retrievedEmployee.get().getEmail()).isEqualTo("jane.doe@example.com");
+    }
+
+    @Test
+    public void testDeleteEmployee() {
+        Employee employee = new Employee("Mark", "Smith", "mark.smith@example.com", 80000);
+        Employee savedEmployee = employeeRepository.save(employee);
+
+        employeeRepository.deleteById(savedEmployee.getId());
+        Optional<Employee> deletedEmployee = employeeRepository.findById(savedEmployee.getId());
+        assertThat(deletedEmployee.isEmpty()).isTrue();
+    }
+}

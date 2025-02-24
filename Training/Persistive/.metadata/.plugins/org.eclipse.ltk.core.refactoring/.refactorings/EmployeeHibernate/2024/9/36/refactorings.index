@@ -1,0 +1,18 @@
+1725638594259	Move 'hibernate-mapping-3.0.dtd' to 'entity'
+1725638874217	Move 'hibernate-mapping-3.0.dtd' to 'EmployeeHibernate'
+1725643697601	Move 'hibernate-mapping-3.0.dtd' to 'entity'
+1725643794446	Copy file
+1725720819678	Move file
+1725720822225	Move file
+1725720827690	Delete element
+1725721458643	Copy file
+1725721497262	Move 'entity' to 'training'
+1725721501271	Move 'training' to 'persist'
+1725721529487	Delete element
+1725721535005	Delete element
+1725742548661	Rename package 'com.indus.training.persist.main'
+1725742594300	Rename package 'com.indus.training.persist.dao.impl'
+1725742789055	Rename package 'com.indus.training.core.dao'
+1725745112515	Delete element
+1725746826757	Copy compilation unit
+1725746838573	Delete element

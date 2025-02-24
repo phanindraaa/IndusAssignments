@@ -1,0 +1,36 @@
+package com.indus.training.spring.service;
+
+import com.indus.training.spring.svc.EmployeeDAO;
+import com.indus.training.spring.entity.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeDAO.findAll();
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+        return employeeDAO.findById(id).orElse(null);
+    }
+
+    @Override
+    public int saveEmployee(Employee employee) {
+        employeeDAO.save(employee); // Save the employee using DAO
+        return employee.getEmployeeId(); // Return the ID of the saved employee
+    }
+
+
+    @Override
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteById(id);
+    }
+}

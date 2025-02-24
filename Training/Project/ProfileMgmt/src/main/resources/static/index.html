@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Transactions Manager</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio & Transactions Manager</h1>
+
+    <!-- Fetch All Portfolios -->
+    <h2>Fetch All Portfolios</h2>
+    <button onclick="fetchAllPortfolios()">Fetch All Portfolios</button>
+    <div id="allPortfoliosTable"></div>
+
+    <!-- Fetch Portfolios by User ID -->
+    <h2>Fetch Portfolios by User ID</h2>
+    <input type="number" id="userIdPortfolios" placeholder="Enter User ID" required />
+    <button onclick="fetchPortfoliosByUserId()">Fetch Portfolios</button>
+    <div id="userPortfoliosTable"></div>
+
+    <!-- Add a New Portfolio -->
+    <h2>Add New Portfolio</h2>
+    <form id="addPortfolioForm">
+        <input type="text" id="portfolioStockSymbol" placeholder="Stock Symbol" required />
+        <input type="number" id="portfolioShares" placeholder="Shares" required />
+        <input type="number" id="portfolioUserId" placeholder="User ID" required />
+        <button type="button" onclick="addPortfolio()">Add Portfolio</button>
+    </form>
+    <pre id="addPortfolioResponse"></pre>
+
+    <!-- Delete a Portfolio -->
+    <h2>Delete Portfolio</h2>
+    <input type="number" id="deletePortfolioId" placeholder="Enter Portfolio ID" required />
+    <button onclick="deletePortfolio()">Delete Portfolio</button>
+    <pre id="deletePortfolioResponse"></pre>
+
+    <!-- Fetch All Transactions -->
+    <h2>Fetch All Transactions</h2>
+    <button onclick="fetchAllTransactions()">Fetch All Transactions</button>
+    <div id="allTransactionsTable"></div>
+
+    <!-- Fetch Transactions by User ID -->
+    <h2>Fetch Transactions by User ID</h2>
+    <input type="number" id="userIdTransactions" placeholder="Enter User ID" required />
+    <button onclick="fetchTransactionsByUserId()">Fetch Transactions</button>
+    <div id="userTransactionsTable"></div>
+
+    <!-- Add a New Transaction -->
+    <h2>Add New Transaction</h2>
+    <form id="addTransactionForm">
+        <input type="number" id="transactionPortfolioId" placeholder="Portfolio ID" required />
+        <input type="text" id="transactionType" placeholder="Transaction Type (BUY/SELL)" required />
+        <input type="text" id="transactionStockSymbol" placeholder="Stock Symbol" required />
+        <input type="number" id="transactionQuantity" placeholder="Quantity" required />
+        <input type="number" id="transactionPrice" placeholder="Price" required />
+        <input type="text" id="transactionStatus" placeholder="Status (PENDING/SUCCESS)" required />
+        <input type="number" id="transactionUserId" placeholder="User ID" required />
+        <button type="button" onclick="addTransaction()">Add Transaction</button>
+    </form>
+    <pre id="addTransactionResponse"></pre>
+
+    <script>
+        const baseUrl = "http://localhost:8080";
+
+        // Fetch All Portfolios
+        async function fetchAllPortfolios() {
+            try {
+                const response = await fetch(`${baseUrl}/portfolios`);
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                const table = generateTable(data, ['portfolioId', 'stockSymbol', 'shares', 'user']);
+                document.getElementById('allPortfoliosTable').innerHTML = table;
+            } catch (error) {
+                console.error('Error fetching portfolios:', error);
+            }
+        }
+
+        // Fetch Portfolios by User ID
+        async function fetchPortfoliosByUserId() {
+            const userId = document.getElementById('userIdPortfolios').value;
+            if (!userId) return alert('Please enter a valid User ID');
+            try {
+                const response = await fetch(`${baseUrl}/portfolios/user/${userId}`);
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                const table = generateTable(data, ['portfolioId', 'stockSymbol', 'shares']);
+                document.getElementById('userPortfoliosTable').innerHTML = table;
+            } catch (error) {
+                console.error('Error fetching portfolios by user:', error);
+            }
+        }
+
+        // Add Portfolio
+        async function addPortfolio() {
+            const payload = {
+                stockSymbol: document.getElementById('portfolioStockSymbol').value,
+                shares: parseInt(document.getElementById('portfolioShares').value),
+                user: { userId: parseInt(document.getElementById('portfolioUserId').value) }
+            };
+            try {
+                const response = await fetch(`${baseUrl}/portfolios`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                document.getElementById('addPortfolioResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Error adding portfolio:', error);
+            }
+        }
+
+        // Delete Portfolio
+        async function deletePortfolio() {
+            const portfolioId = document.getElementById('deletePortfolioId').value;
+            if (!portfolioId) return alert('Please enter a valid Portfolio ID');
+            try {
+                const response = await fetch(`${baseUrl}/portfolios/${portfolioId}`, {
+                    method: 'DELETE'
+                });
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                document.getElementById('deletePortfolioResponse').textContent = `Portfolio ID ${portfolioId} deleted successfully!`;
+            } catch (error) {
+                console.error('Error deleting portfolio:', error);
+            }
+        }
+
+        // Fetch All Transactions
+        async function fetchAllTransactions() {
+            try {
+                const response = await fetch(`${baseUrl}/transactions`);
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                const table = generateTable(data, ['transactionId', 'transactionType', 'stockSymbol', 'quantity', 'price', 'status', 'timestamp']);
+                document.getElementById('allTransactionsTable').innerHTML = table;
+            } catch (error) {
+                console.error('Error fetching transactions:', error);
+            }
+        }
+
+        // Fetch Transactions by User ID
+        async function fetchTransactionsByUserId() {
+            const userId = document.getElementById('userIdTransactions').value;
+            if (!userId) return alert('Please enter a valid User ID');
+            try {
+                const response = await fetch(`${baseUrl}/transactions/user/${userId}`);
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                const table = generateTable(data, ['transactionId', 'transactionType', 'stockSymbol', 'quantity']);
+                document.getElementById('userTransactionsTable').innerHTML = table;
+            } catch (error) {
+                console.error('Error fetching transactions by user:', error);
+            }
+        }
+
+        // Add Transaction
+        async function addTransaction() {
+            const payload = {
+                portfolio: { portfolioId: parseInt(document.getElementById('transactionPortfolioId').value) },
+                transactionType: document.getElementById('transactionType').value,
+                stockSymbol: document.getElementById('transactionStockSymbol').value,
+                quantity: parseInt(document.getElementById('transactionQuantity').value),
+                price: parseFloat(document.getElementById('transactionPrice').value),
+                status: document.getElementById('transactionStatus').value,
+                user: { userId: parseInt(document.getElementById('transactionUserId').value) }
+            };
+            try {
+                const response = await fetch(`${baseUrl}/transactions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                const data = await response.json();
+                document.getElementById('addTransactionResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Error adding transaction:', error);
+            }
+        }
+
+        // Helper function to generate a table from JSON data
+        function generateTable(data, columns) {
+            if (!Array.isArray(data) || data.length === 0) {
+                return '<p>No data available</p>';
+            }
+
+            let table = '<table><thead><tr>';
+            columns.forEach(column => {
+                table += `<th>${column}</th>`;
+            });
+            table += '</tr></thead><tbody>';
+
+            data.forEach(item => {
+                table += '<tr>';
+                columns.forEach(column => {
+                    const cellValue = column === 'user' ? (item.user ? item.user.username : 'N/A') : item[column];
+                    table += `<td>${cellValue || 'N/A'}</td>`;
+                });
+                table += '</tr>';
+            });
+
+            table += '</tbody></table>';
+            return table;
+        }
+    </script>
+</body>
+</html>

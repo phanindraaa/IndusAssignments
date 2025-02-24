@@ -1,0 +1,23 @@
+package com.indus.async.service;
+
+import com.indus.async.config.RabbitMQConfig;
+import com.indus.async.model.PortfolioEvent;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProfileEventConsumer {
+
+    @RabbitListener(queues = RabbitMQConfig.QUEUE)
+    public void handlePortfolioEvent(PortfolioEvent event) {
+        System.out.println("Received Portfolio Event: " + event);
+
+        // Process the event (e.g., save to MongoDB)
+        saveEventToDatabase(event);
+    }
+
+    private void saveEventToDatabase(PortfolioEvent event) {
+        // Mock saving to MongoDB (implement this later with a repository)
+        System.out.println("Saved to MongoDB: " + event);
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;EmployeeDbUi/src/main/resources/dbconfig.properites&apos; to &apos;dbconfig.properties&apos;" description="Rename resource &apos;dbconfig.properites&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/dbconfig.properites" name="dbconfig.properties" stamp="1725515983738" updateReferences="true"/>
+</session>

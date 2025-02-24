@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: #2C3E50; }
+        ul { list-style-type: none; }
+    </style>
+</head>
+<body>
+    <h1>My Resume</h1>
+    <h2>Personal Information</h2>
+    <p>Name: {{name}}</p>
+    <p>Email: {{email}}</p>
+    <p>Phone: {{phone}}</p>
+    
+    <h2>Skills</h2>
+    <ul>
+        {{#skills}}
+            <li>{{.}}</li>
+        {{/skills}}
+    </ul>
+    
+    <h2>Experience</h2>
+    <p><strong>{{experience}}</strong></p>
+    
+    <h2>Education</h2>
+    <p>{{education}}</p>
+
+    <h2>Update Resume</h2>
+    <form method="POST" action="/resume">
+        Name: <input type="text" name="name" value="{{name}}"/><br/>
+        Email: <input type="text" name="email" value="{{email}}"/><br/>
+        Phone: <input type="text" name="phone" value="{{phone}}"/><br/>
+        Skills: <input type="text" name="skills" value="{{skillsAsString}}"/><br/>
+        Experience: <input type="text" name="experience" value="{{experience}}"/><br/>
+        Education: <input type="text" name="education" value="{{education}}"/><br/>
+        <input type="submit" value="Update Resume"/>
+    </form>
+</body>
+</html>

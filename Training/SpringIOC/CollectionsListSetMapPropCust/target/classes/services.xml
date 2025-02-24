@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Existing beans -->
+    <context:component-scan base-package="com.indus.training.spring"/>
+
+    <bean id="petStore" class="com.indus.training.spring.service.PetStoreServiceImpl">
+        <property name="customerDAO" ref="customerDAO"/>
+        <property name="orderDAO" ref="orderDAO"/>
+    </bean>
+
+    <!-- Example customer with collections -->
+    <bean id="exampleCustomer" class="com.indus.training.spring.entity.Customers">
+        <property name="customerName" value="phani"/>
+        <property name="email" value="phani@gmail.com"/>
+        <property name="additionalEmails">
+            <map>
+                <entry key="work" value="phani.work@example.com"/>
+                <entry key="personal" value="phani.personal@example.com"/>
+            </map>
+        </property>
+        <property name="phoneNumbers">
+            <list>
+                <value>123-456-7890</value>
+                <value>987-654-3210</value>
+            </list>
+        </property>
+        <property name="addresses">
+            <set>
+                <value>Ohio</value>
+                <value>Dayton</value>
+            </set>
+        </property>
+       
+    </bean>
+</beans>

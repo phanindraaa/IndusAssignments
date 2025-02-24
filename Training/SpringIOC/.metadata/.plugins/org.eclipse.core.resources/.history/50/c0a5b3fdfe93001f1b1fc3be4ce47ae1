@@ -1,0 +1,53 @@
+package com.indus.training.spring.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+@Configuration
+@EnableTransactionManagement
+public class JpaConfig {
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        dataSource.setUrl("jdbc:sqlserver://phani\\SQLEXPRESS:1433;databaseName=Employee;encrypt=false;trustServerCertificate=true");
+        dataSource.setUsername("phani");
+        dataSource.setPassword("HUNter@143");
+        return dataSource;
+    }
+
+    @Bean(name = "entityManagerFactory") // Ensure this bean name is unique in case of conflicts
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource());
+        emf.setPackagesToScan("com.indus.training.spring"); // adjust package to where Employee entity class is located
+        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+
+        // Set JPA properties
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");  // Explicitly specify SQL Server dialect
+        properties.setProperty("hibernate.hbm2ddl.auto", "update"); // Optional, for schema updates
+        properties.setProperty("hibernate.show_sql", "true"); // Optional, for SQL logging
+        emf.setJpaProperties(properties);
+
+        return emf;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactory) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory.getObject()); // Use LocalContainerEntityManagerFactoryBean object
+        return transactionManager;
+    }
+}

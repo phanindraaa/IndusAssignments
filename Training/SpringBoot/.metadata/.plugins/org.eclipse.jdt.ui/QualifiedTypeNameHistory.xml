@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.CalcEncr"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.CalcEncInp"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.CalcEncOut"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.dao.UniversityDao"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.dao.EmployeeDao"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.entity.Employees"/>
+    <fullyQualifiedTypeName name="com.indus.training.spring.dao.EmployeeRepository"/>
+    <fullyQualifiedTypeName name="com.indus.training.spring.entity.Employee"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.web.server.LocalServerPort"/>
+</qualifiedTypeNameHistroy>

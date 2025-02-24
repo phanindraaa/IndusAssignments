@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Enable component scanning for service layer -->
+    <context:component-scan base-package="com.indus.training.spring"/>
+
+   <bean id="basePetStore" abstract="true" class="com.indus.training.spring.service.PetStoreServiceImpl">
+        <property name="supportEmails">
+            <props>
+                <prop key="general">support@petstore.com</prop>
+                <prop key="orders">orders@petstore.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="petStore" parent="basePetStore">
+        <property name="customerDAO" ref="customerDAO"/>
+        <property name="orderDAO" ref="orderDAO"/>
+        <property name="supportEmails">
+            <props merge="true">
+                <prop key="returns">returns@petstore.com</prop>
+                <prop key="orders">neworders@petstore.com</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Address.hbm.xml&apos; to &apos;CollectionMappingMap7.2Sorting/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;CollectionMappingMap7.2&apos;&#x0D;&#x0A;- Destination element: &apos;CollectionMappingMap7.2Sorting/src/main/resources&apos;&#x0D;&#x0A;- Original element: &apos;Address.hbm.xml&apos;" description="Copy file" destination="=CollectionMappingMap7.2Sorting/src\/main\/resources=/maven.pomderived=/true=/=/optional=/true=/" element1="src/main/resources/Address.hbm.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1726607176814" units="0" version="1.0"/>
+</session>

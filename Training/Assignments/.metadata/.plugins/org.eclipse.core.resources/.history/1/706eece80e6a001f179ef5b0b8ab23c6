@@ -1,0 +1,48 @@
+package com.indus.training.core.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseConnect {
+    
+    // Database credentials
+    private static final String DB_URL = "jdbc:sqlserver://PHANI\\SQLEXPRESS;databaseName=AdventureWorksDW2022";
+    private static final String USER = "phani";
+    private static final String PASS = "HUNter@143";
+    
+    public static void main(String[] args) {
+        Connection connection = null;
+        
+        try {
+            // Register JDBC driver (optional step for newer JDBC versions)
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            
+            // Open a connection
+            System.out.println("Connecting to SQL Server...");
+            connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            
+            System.out.println("Connected to SQL Server database successfully.");
+            
+            // Perform database operations here
+            
+        } catch (SQLException se) {
+            // Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            // Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            // Finally block used to close resources
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        
+        System.out.println("Goodbye!");
+    }
+}

@@ -1,0 +1,3 @@
+com\indus\training\spring\config\JpaConfig.class
+com\indus\training\spring\entity\Employee.class
+com\indus\training\spring\dao\EmployeeRepository.class

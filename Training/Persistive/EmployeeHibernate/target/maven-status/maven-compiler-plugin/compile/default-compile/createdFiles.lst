@@ -1,0 +1,7 @@
+com\indus\training\persist\dao\IEmployeeManager.class
+com\indus\training\persist\entity\Employees.class
+com\indus\training\persist\impl\EmployeeOfficeManager.class
+com\indus\training\persist\entity\EmployeeOffice.class
+com\indus\training\persist\dao\IEmployeeOffice.class
+com\indus\training\persist\impl\EmployeeManager.class
+com\indus\training\persist\util\HibernateUtil.class

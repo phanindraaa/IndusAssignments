@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ShapeFactoey&apos; to &apos;ShapeFactory&apos;" description="Rename resource &apos;ShapeFactoey&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/ShapeFactoey" name="ShapeFactory" stamp="1727800729097" updateReferences="true"/>
+</session>

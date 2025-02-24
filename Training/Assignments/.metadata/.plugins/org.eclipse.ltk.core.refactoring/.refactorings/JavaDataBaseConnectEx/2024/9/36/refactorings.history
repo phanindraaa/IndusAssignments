@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.indus.training.core.ui&apos; to &apos;com.indus.training.core.db&apos;&#x0D;&#x0A;- Original project: &apos;JavaDataBaseConnectEx&apos;&#x0D;&#x0A;- Original element: &apos;JavaDataBaseConnectEx/src/main/java/com.indus.training.core.ui&apos;&#x0D;&#x0A;- Renamed element: &apos;JavaDataBaseConnectEx/src/main/java/com.indus.training.core.db&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.indus.training.core.ui&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.indus.training.core.ui" name="com.indus.training.core.db" qualified="false" references="true" stamp="1725378509839" textual="false" version="1.0"/>
+</session>

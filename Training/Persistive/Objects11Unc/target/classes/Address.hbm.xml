@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.indus.training.persist.entity.Address" table="Address">
+        <id name="addressID" column="AddressID">
+            <generator class="identity"/>
+        </id>
+
+        <property name="street" column="Street" type="string" not-null="true"/>
+        <property name="city" column="City" type="string" not-null="true"/>
+        <property name="country" column="Country" type="string" not-null="true"/>
+    </class>
+</hibernate-mapping>

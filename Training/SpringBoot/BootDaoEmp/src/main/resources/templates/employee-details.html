@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+</head>
+<body>
+    <h1>Employee Details</h1>
+    <div th:if="${employee.isPresent()}">
+        <p><strong>ID:</strong> <span th:text="${employee.get().id}"></span></p>
+        <p><strong>First Name:</strong> <span th:text="${employee.get().firstName}"></span></p>
+        <p><strong>Last Name:</strong> <span th:text="${employee.get().lastName}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${employee.get().email}"></span></p>
+        <p><strong>Salary:</strong> <span th:text="${employee.get().salary}"></span></p>
+    </div>
+    <div th:unless="${employee.isPresent()}">
+        <p>Employee not found.</p>
+    </div>
+    <a href="/employees">Back to Search</a>
+</body>
+</html>

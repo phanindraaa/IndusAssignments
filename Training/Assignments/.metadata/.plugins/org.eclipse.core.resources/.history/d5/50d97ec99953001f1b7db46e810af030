@@ -1,0 +1,21 @@
+package com.indus.training.core.svc;
+
+import com.indus.training.core.domain.CalcInput;
+
+import junit.framework.TestCase;
+
+public class testCalci extends TestCase {
+
+	protected void setUp() throws Exception {
+		super.setUp();
+	}
+
+	protected void tearDown() throws Exception {
+		super.tearDown();
+	}
+	
+	public void testAddition() {
+		CalcInput CalInpObj = null;
+		
+	}
+}

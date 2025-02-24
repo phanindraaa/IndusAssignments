@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.indus.training.persist.entity.Employee" table="Employee">
+        <id name="employeeID" column="EmployeeID">
+            <generator class="identity"/>
+        </id>
+
+        <property name="firstName" column="FirstName" type="string" not-null="true"/>
+        <property name="lastName" column="LastName" type="string" not-null="true"/>
+
+        <!-- Mapping for the collection of Address embeddables -->
+        <set name="addresses" table="Addresses">
+            <key column="EmployeeID"/>
+            <composite-element class="com.indus.training.persist.entity.Address">
+                <property name="street" column="fld_street"/>
+                <property name="city" column="fld_city"/>
+                <property name="country" column="fld_country"/>
+            </composite-element>
+        </set>
+    </class>
+</hibernate-mapping>

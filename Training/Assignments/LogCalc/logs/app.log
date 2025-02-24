@@ -1,0 +1,81 @@
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -625.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -625.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 -25.0 input 2 25.0 result -625.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 -25.0 input 2 0.0 result -0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 4.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 3.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 4.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 3.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 7.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 4.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 3.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 7.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 4.0 input 2 3.0 result 7.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 7000000.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 7000000.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 7000000.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 7000000.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 1.4E7
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 7000000.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 7000000.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 1.4E7
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 7000000.0 input 2 7000000.0 result 1.4E7
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 -25.0 input 2 25.0 result 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -50.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -50.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 -25.0 input 2 25.0 result -50.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 25.0 input 2 25.0 result 0.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -1.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 -25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined -1.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 -25.0 input 2 25.0 result -1.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param1 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncInp - This is param2 5.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 5.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 5.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param1 25.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - This is param2 5.0
+2024-10-10 19:46:20 [main] INFO  CalcEncOut - Result Obatined 5.0
+2024-10-10 19:46:20 [main] INFO  CalcEncr - input 1 25.0 input 2 5.0 result 5.0

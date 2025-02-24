@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.indus.project.entity.User"/>
+    <fullyQualifiedTypeName name="com.indus.project.repository.PortfolioRepository"/>
+    <fullyQualifiedTypeName name="com.indus.project.repository.TransactionRepository"/>
+    <fullyQualifiedTypeName name="com.indus.project.entity.Portfolio"/>
+    <fullyQualifiedTypeName name="com.indus.project.service.PortfolioService"/>
+    <fullyQualifiedTypeName name="com.indus.project.entity.Transaction"/>
+    <fullyQualifiedTypeName name="com.indus.project.service.TransactionService"/>
+    <fullyQualifiedTypeName name="com.indus.project.model.PortfolioEvent"/>
+    <fullyQualifiedTypeName name="com.indus.async.model.PortfolioEvent"/>
+    <fullyQualifiedTypeName name="com.indus.project.config.JwtTokenProvider"/>
+</qualifiedTypeNameHistroy>

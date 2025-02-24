@@ -1,0 +1,44 @@
+package com.indus.training.ui;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+public class JavaDoc {
+		public static void main(String[] args) {
+			String inputFilePath = "src/main/java/com/indus/training/ui/EmployeeUi.java"; // Change this to your input file path
+			String outputFilePath = "comments.html";
+
+			try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
+					FileWriter writer = new FileWriter(outputFilePath)) {
+
+				writer.write("<html><body><h1>Comments from " + inputFilePath + "</h1><ul>");
+
+				String line;
+				boolean multiLineComment = false;
+
+				while ((line = br.readLine()) != null) {
+					line = line.trim();
+
+					// Single-line comment
+					if (line.startsWith("//")) {
+						writer.write("<li>" + line + "</li>");
+					}
+
+					// Start of a multi-line comment
+					if (line.startsWith("/*")) {
+						multiLineComment = true;
+						writer.write("<li>" + line);
+					}
+//			System.out.println("File is Created");
+
+}
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+		}
+}
+

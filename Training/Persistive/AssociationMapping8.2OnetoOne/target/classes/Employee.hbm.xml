@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.indus.training.persist.entity.Employee" table="Employee">
+
+        <id name="employeeID" column="EmployeeID">
+            <generator class="identity" />
+        </id>
+
+        <property name="firstName" column="FirstName" not-null="true" />
+        <property name="lastName" column="LastName" not-null="true" />
+
+        <!-- Owning side of the OneToOne relationship -->
+        <one-to-one name="address" class="com.indus.training.persist.entity.Address" 
+                    cascade="all" />
+
+    </class>
+</hibernate-mapping>

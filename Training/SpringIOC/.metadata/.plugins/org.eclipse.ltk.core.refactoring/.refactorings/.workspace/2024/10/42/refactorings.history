@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringXMLSerialization&apos; to &apos;SpringXMLSerializationJaxB&apos;" description="Rename resource &apos;SpringXMLSerialization&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SpringXMLSerialization" name="SpringXMLSerializationJaxB" stamp="1729194623943" updateReferences="true"/>
+</session>

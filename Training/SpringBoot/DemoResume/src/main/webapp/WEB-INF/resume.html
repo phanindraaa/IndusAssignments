@@ -1,0 +1,29 @@
+<!-- WEB-INF/resume.html -->
+<html>
+<head>
+    <title>Resume API</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: #2C3E50; }
+        p { font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Resume API is Running!</h1>
+    <h2>Your Resume Details</h2>
+    <ul>
+        <li>Name: {{name}}</li>
+        <li>Education: {{education}}</li>
+        <li>Experience: {{experience}}</li>
+        <li>Skills: {{skills}}</li>
+    </ul>
+    <h2>Update Resume</h2>
+    <form method="post" action="simple">
+        Name: <input type="text" name="name" value="{{name}}" required/><br/>
+        Education: <input type="text" name="education" value="{{education}}" required/><br/>
+        Experience: <input type="text" name="experience" value="{{experience}}" required/><br/>
+        Skills: <input type="text" name="skills" value="{{skills}}" required/><br/>
+        <input type="submit" value="Update Resume"/>
+    </form>
+</body>
+</html>

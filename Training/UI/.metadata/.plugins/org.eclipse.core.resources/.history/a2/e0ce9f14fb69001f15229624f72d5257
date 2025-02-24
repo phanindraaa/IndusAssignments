@@ -1,0 +1,18 @@
+import com.sun.tools.javadoc.Main;
+
+public class JavaDoc {
+
+    public static void main(String[] args) {
+        // Specify the arguments for the javadoc tool
+        String[] javadocArgs = new String[] {
+            "-d", "doc",                   // Output directory for the generated docs
+            "-sourcepath", "src/main/java", // Source code directory
+            "-subpackages", "com.example",  // Package to generate docs for
+            "-author",                      // Include the author in the docs
+            "-version"                      // Include the version in the docs
+        };
+
+        // Call the javadoc tool programmatically
+        Main.execute(javadocArgs);
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.indus.training.persist.entity.EmployeeDepartment" table="EmployeeDepartment">
+        <composite-id name="id" class="com.indus.training.persist.entity.EmployeeDepartmentId">
+            <key-property name="employeeID" column="EmployeeID"/>
+            <key-property name="departmentID" column="DepartmentID"/>
+        </composite-id>
+    </class>
+</hibernate-mapping>

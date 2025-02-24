@@ -1,0 +1,60 @@
+package com.indus.training.spring.service;
+
+import com.indus.training.spring.svc.EmployeeDAO;
+
+
+import com.indus.training.spring.entity.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
+import org.springframework.stereotype.Service;
+
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
+
+    // Cache the result of getting all employees
+    @Override
+    @Cacheable(value = "employeeCache", unless = "#result.size() == 0")
+    public List<Employee> getAllEmployees() {
+        return employeeDAO.findAll();
+    }
+
+    // Cache the result of getting an employee by ID
+    @Override
+    @Cacheable(value = "employeeCache", key = "#id")
+    public Employee getEmployeeById(int id) {
+        Optional<Employee> employeeOptional = employeeDAO.findById(id);
+        return employeeOptional.orElse(null);
+    }
+
+    @Override
+    @CachePut(value = "employeeCache", key = "#result")
+    public int saveEmployee(Employee employee) {
+        Employee savedEmployee = employeeDAO.save(employee);
+        return savedEmployee.getEmployeeId();
+    }
+
+    // Evict the cache for the deleted employee by ID
+    @Override
+    @CacheEvict(value = "employeeCache", key = "#p0")
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteById(id);
+    }
+
+    // Method to clear all cache entries (optional)
+    @Caching(evict = {
+        @CacheEvict(value = "employeeCache", allEntries = true)
+    })
+    public void clearAllCache() {
+        // This method can be called to clear the entire cache
+    }
+}

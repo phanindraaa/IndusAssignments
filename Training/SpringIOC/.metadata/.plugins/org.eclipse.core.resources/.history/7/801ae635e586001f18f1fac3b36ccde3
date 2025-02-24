@@ -1,0 +1,8 @@
+package com.indus.training.spring.service;
+
+import com.indus.training.spring.entity.Orders;
+
+public interface OrderService {
+    void createOrder(Orders order);
+    List<Orders> getOrdersForCustomer(int customerId);
+}

@@ -1,0 +1,7 @@
+java.lang.AssertionError: Use assertEquals(expected, actual, delta) to compare floating-point numbers
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertEquals(Assert.java:669)
+	at org.junit.Assert.assertEquals(Assert.java:658)
+	at testCalc.testMultiplication(testCalc.java:46)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        #refresh-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #refresh-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Events</h1>
+    <button id="refresh-btn" onclick="loadEvents()">Refresh Events</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Portfolio ID</th>
+                <th>Action</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody id="events-table">
+            <!-- Events will be dynamically loaded here -->
+        </tbody>
+    </table>
+
+    <script>
+        async function loadEvents() {
+            try {
+                const response = await fetch('http://localhost:8081/events'); // Replace with your API URL
+                const events = await response.json();
+
+                const tableBody = document.getElementById('events-table');
+                tableBody.innerHTML = ''; // Clear existing rows
+
+                events.forEach(event => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${event.portfolioId}</td>
+                        <td>${event.action}</td>
+                        <td>${event.details}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching events:', error);
+                alert('Failed to load events. Please try again.');
+            }
+        }
+
+        // Load events on page load
+        window.onload = loadEvents;
+    </script>
+</body>
+</html>

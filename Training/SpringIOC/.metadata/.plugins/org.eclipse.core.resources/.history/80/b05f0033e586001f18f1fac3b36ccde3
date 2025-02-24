@@ -1,0 +1,5 @@
+package com.indus.training.spring.service;
+
+public interface OrderService {
+
+}

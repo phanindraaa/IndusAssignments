@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.indus.training.persist.entity.EmployeeOffice" table="EmployeeOffice">
+        <id name="officeId" column="office_id"></id>
+        <many-to-one name="employee" column="employee_id" class="com.indus.training.persist.entity.Employees" not-null="true"/>
+        <property name="officeLocation" column="office_location" not-null="true"/>
+    </class>
+</hibernate-mapping>

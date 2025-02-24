@@ -1,0 +1,61 @@
+package com.spring.training;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@Configuration
+public class ResumeServletConfig {
+
+    @Bean
+    public ServletRegistrationBean<ResumeServlet> resumeServletBean() {
+        ServletRegistrationBean<ResumeServlet> bean = new ServletRegistrationBean<>(
+            new ResumeServlet(), "/resume");
+        bean.setLoadOnStartup(1);
+        return bean;
+    }
+}
+
+class ResumeServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        out.println("<html><body>");
+        out.println("<h1>My Resume</h1>");
+        out.println("<h2>Personal Information</h2>");
+        out.println("<p>Name: John Doe</p>");
+        out.println("<p>Email: john.doe@example.com</p>");
+        out.println("<p>Phone: (123) 456-7890</p>");
+        
+        out.println("<h2>Skills</h2>");
+        out.println("<ul>");
+        out.println("<li>Java</li>");
+        out.println("<li>Spring Boot</li>");
+        out.println("<li>RESTful APIs</li>");
+        out.println("<li>Database Management</li>");
+        out.println("</ul>");
+        
+        out.println("<h2>Experience</h2>");
+        out.println("<p><strong>Software Developer</strong> - XYZ Company (2018-Present)</p>");
+        out.println("<ul>");
+        out.println("<li>Developed and maintained Java-based applications</li>");
+        out.println("<li>Implemented RESTful APIs using Spring Boot</li>");
+        out.println("<li>Collaborated with cross-functional teams to deliver high-quality software</li>");
+        out.println("</ul>");
+        
+        out.println("<h2>Education</h2>");
+        out.println("<p>Bachelor of Science in Computer Science - University of Technology (2014-2018)</p>");
+        
+        out.println("</body></html>");
+    }
+}

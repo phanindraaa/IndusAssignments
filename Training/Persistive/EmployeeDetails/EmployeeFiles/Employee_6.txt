@@ -1,0 +1,4 @@
+Employee ID: 6
+Employee Name: John Doe
+Employee Phone: 1234567890
+Employee Email: johndoe@example.com

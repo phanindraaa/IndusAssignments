@@ -1,0 +1,8 @@
+com\indus\training\persist\entity\Employee.class
+com\indus\training\persist\dao\EmployeeDepartmentDAO.class
+com\indus\training\persist\entity\EmployeeDepartment.class
+com\indus\training\persist\entity\Address.class
+com\indus\training\persist\dao\AddressDao.class
+com\indus\training\persist\dao\EmployeeDAO.class
+com\indus\training\persist\entity\EmployeeDepartmentId.class
+com\indus\training\persist\util\HibernateUtil.class

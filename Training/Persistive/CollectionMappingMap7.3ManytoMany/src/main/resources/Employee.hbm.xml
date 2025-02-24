@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.indus.training.persist.entity.Employee" table="Employee">
+        <id name="employeeID" column="EmployeeID">
+            <generator class="identity"/>
+        </id>
+        <property name="firstName" column="FirstName"/>
+        <property name="lastName" column="LastName"/>
+        
+        <set name="addresses" table="Employee_Address" cascade="persist,merge">
+            <key column="EmployeeID"/>
+            <many-to-many column="AddressID" class="com.indus.training.persist.entity.Address"/>
+        </set>
+    </class>
+</hibernate-mapping>

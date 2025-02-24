@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.BMICalcInp"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.BMICalcOut"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.time.Period"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.InterestCalcInp"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.svc.Vehicle"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.Vehicle"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.Bike"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.Theatre"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.exception.InvalidInputException"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.exception.CalculationException"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.GiftCardDynamicArray"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.svc.IMyProfile"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.svc.ICalci"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.calc"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.CalcEncInp"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.domain.CalcEncOut"/>
+    <fullyQualifiedTypeName name="com.indus.training.core.impl.CalcEncr"/>
+    <fullyQualifiedTypeName name="java.lang.Class"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="com.indus.training.spring.config.ClacConfig"/>
+    <fullyQualifiedTypeName name="com.indus.training.spring.impl.CalcImpl"/>
+</qualifiedTypeNameHistroy>

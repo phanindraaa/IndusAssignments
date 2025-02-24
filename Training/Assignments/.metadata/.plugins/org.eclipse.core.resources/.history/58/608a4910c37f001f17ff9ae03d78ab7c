@@ -1,0 +1,56 @@
+package com.indus.training.core.test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.indus.training.core.entity.ShapeInput;
+import com.indus.training.core.entity.ShapeOutput;
+import com.indus.training.core.svc.Shape;
+
+public class testShape {
+	
+	private Shape shapeCalc;
+	private Constructor shapeCons;
+	@Before
+	public void setUp() throws Exception {	
+		BufferedReader reader = new BufferedReader(new FileReader("PathsFile.txt"));
+		String line = reader.readLine();
+		String path = line.split("=")[1];
+		Class shapeClass = Class.forName(path);
+		shapeCons = shapeClass.getConstructor(ShapeInput.class);
+//		Object shapeObj = shapeClass.newInstance();
+//		shapeCalc = (Shape) shapeObj;
+		
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		shapeCalc = null;
+	}
+
+	@Test
+	public void testCircle() {
+		ShapeInput shInp = new ShapeInput(); 
+		shInp.setRadius(2.0);
+		try {
+			
+			shapeCalc = (Shape) shapeCons.newInstance(shInp);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ShapeOutput outRes = shapeCalc.calculateArea();
+		assertEquals(4.0, outRes.getResult(), 0.0001);
+	}
+
+}

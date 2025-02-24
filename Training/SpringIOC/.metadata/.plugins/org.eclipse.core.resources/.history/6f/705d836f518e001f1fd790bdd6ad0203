@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/data/jpa 
+            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+           http://www.springframework.org/schema/cache 
+           http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+  <!-- Enable caching -->
+    <cache:annotation-driven />
+
+   <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager">
+    <property name="cacheNames">
+        <list>
+            <value>employeeCache</value>
+        </list>
+    </property>
+    <property name="storeByValue" value="true"/>
+</bean>
+    
+    <!-- Scan for Spring components -->
+    <context:component-scan base-package="com.indus.training.spring" />
+
+    <!-- Configure the DataSource -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="url" value="jdbc:sqlserver://phani\\SQLEXPRESS:1433;databaseName=HRSchema"/>
+        <property name="username" value="phani"/>
+        <property name="password" value="HUNter@143"/>
+    </bean>
+
+    <!-- Configure the EntityManagerFactory -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.indus.training.spring.entity"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="entityManagerFactoryInterface" value="jakarta.persistence.EntityManagerFactory"/>
+
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Configure the Transaction Manager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!-- Enable JPA repositories -->
+    <jpa:repositories base-package="com.indus.training.spring.svc"/>
+</beans>

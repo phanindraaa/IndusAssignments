@@ -1,0 +1,1 @@
+ShapeClass=com.indus.training.core.dao.Square

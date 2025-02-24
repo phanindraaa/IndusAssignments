@@ -1,0 +1,4 @@
+com\indus\training\persist\dao\EmployeeManager.class
+com\indus\training\persist\svc\EmployeeMapper.class
+com\indus\training\persist\entity\Employees.class
+com\indus\training\persist\util\MyBatisUtil.class

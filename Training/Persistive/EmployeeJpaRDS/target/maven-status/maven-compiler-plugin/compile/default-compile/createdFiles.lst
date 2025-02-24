@@ -1,0 +1,3 @@
+com\indus\training\persist\entity\Employee.class
+com\indus\training\persist\dao\EmployeeManagerJpa.class
+com\indus\training\persist\util\JpaUtil.class

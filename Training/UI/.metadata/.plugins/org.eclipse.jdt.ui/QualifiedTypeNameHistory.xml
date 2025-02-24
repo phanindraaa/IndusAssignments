@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.indus.training.persist.dac.impl.EmpData"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.entity.EmpDetails"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.dac.impl.EmpDataDb"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.entity.Employees"/>
+    <fullyQualifiedTypeName name="com.indus.training.persist.main.EmployeeManager"/>
+</qualifiedTypeNameHistroy>
